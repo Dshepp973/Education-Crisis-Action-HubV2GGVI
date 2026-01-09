@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education Crisis Action Hub | Solutions for Parents, Teachers & Students</title>
+    <title>Education Crisis Action Hub | D.R.I.P. Certified</title>
     <style>
         :root {
             --color-white: rgba(255, 255, 255, 1);
@@ -77,7 +77,136 @@
 
         body {
             line-height: var(--line-height-normal);
+            /* Prevent scrolling when splash is active */
+            overflow-x: hidden; 
         }
+
+        body.splash-active {
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        /* Links within content */
+        p a, li a {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+        p a:hover, li a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        /* --- SPLASH SCREEN --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-slate-900) 0%, var(--color-charcoal-800) 100%);
+            color: var(--color-white);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--space-20);
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        #splash-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .splash-content {
+            max-width: 600px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .splash-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--color-primary);
+            padding: var(--space-8) var(--space-16);
+            border-radius: 50px;
+            margin-bottom: var(--space-24);
+            font-weight: var(--font-weight-bold);
+            letter-spacing: 1px;
+            color: var(--color-primary);
+        }
+
+        .splash-title {
+            font-size: 3rem;
+            margin-bottom: var(--space-8);
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, var(--color-gray-300));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .splash-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-gray-300);
+            margin-bottom: var(--space-32);
+            font-weight: var(--font-weight-normal);
+            letter-spacing: 2px;
+        }
+
+        .drip-link {
+            display: inline-block;
+            margin-bottom: var(--space-24);
+            color: var(--color-orange-400);
+            text-decoration: underline;
+            font-size: var(--font-size-md);
+            transition: color 0.2s;
+        }
+        
+        .drip-link:hover {
+            color: var(--color-white);
+        }
+
+        .hashtags {
+            font-family: var(--font-family-mono);
+            color: var(--color-primary);
+            margin-bottom: var(--space-32);
+            font-size: var(--font-size-lg);
+        }
+
+        .enter-btn {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: var(--font-size-lg);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            font-weight: var(--font-weight-bold);
+            box-shadow: 0 4px 15px rgba(168, 75, 47, 0.4);
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--color-primary-hover);
+        }
+
+        .splash-footer-link {
+            margin-top: var(--space-32);
+            font-size: var(--font-size-sm);
+            opacity: 0.6;
+            color: var(--color-white);
+            text-decoration: none;
+        }
+        .splash-footer-link:hover { opacity: 1; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- MAIN SITE STYLES --- */
 
         /* Header */
         header {
@@ -384,7 +513,7 @@
             background-color: var(--color-charcoal-700);
             color: var(--color-gray-200);
             text-align: center;
-            padding: var(--space-24);
+            padding: var(--space-32) var(--space-24);
             margin-top: var(--space-32);
             font-size: var(--font-size-sm);
             border-top: 1px solid var(--color-border);
@@ -403,8 +532,24 @@
             text-decoration: underline;
         }
 
+        .disclaimer-box {
+            margin-top: var(--space-24);
+            padding: var(--space-16);
+            background-color: rgba(0,0,0,0.2);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-400);
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .splash-title {
+                font-size: 2rem;
+            }
             header h1 {
                 font-size: var(--font-size-2xl);
             }
@@ -468,7 +613,34 @@
         }
     </style>
 </head>
-<body>
+<body class="splash-active">
+
+    <!-- OPENING SPLASH PAGE -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <span class="splash-badge">CERTIFIED</span>
+            <h1 class="splash-title">D.R.I.P. Certified</h1>
+            <h2 class="splash-subtitle">(DIGITAL RESUME INTERACTIVE PORTFOLIO)</h2>
+            
+            <a href="https://gemini.google.com/share/d6bba053592b" target="_blank" class="drip-link">
+                View D.R.I.P. Certification & Source
+            </a>
+            
+            <div class="hashtags">#GVI #V2G</div>
+            
+            <button class="enter-btn" onclick="closeSplash()">
+                Enter Action Hub
+            </button>
+            
+            <div>
+                <a href="https://NahuceGVI.org" target="_blank" class="splash-footer-link">
+                    V2Gmultimedia | TheInvenityCosmic | NahuceGVI.org
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN SITE CONTENT -->
     <header>
         <h1>⚠️ Education Crisis Action Hub</h1>
         <p>Understanding the 2025-2026 Changes to Teaching, Degrees & Education Funding — and What We Can Do About It</p>
@@ -539,7 +711,7 @@
                 <div class="card">
                     <div class="card-icon">📞</div>
                     <h3>Contact Your Elected Representatives</h3>
-                    <p>Call/email your state legislators and U.S. representatives. Tell them: <em>"Protect federal education funding. Don't defund schools in our community."</em> Find contacts at house.gov, senate.gov, or your state legislature website.</p>
+                    <p>Call/email your state legislators and U.S. representatives. Tell them: <em>"Protect federal education funding. Don't defund schools in our community."</em> Find contacts at <a href="https://www.house.gov" target="_blank">house.gov</a>, <a href="https://www.senate.gov" target="_blank">senate.gov</a>, or your state legislature website.</p>
                     <button class="btn btn--primary btn--small" onclick="toggleCollapse('pb2')">Learn More</button>
                 </div>
 
@@ -639,9 +811,9 @@
                 <div class="collapse-content">
                     <h4>Find Your Representatives:</h4>
                     <ul>
-                        <li><strong>U.S. House:</strong> house.gov/representatives/find-your-representative</li>
-                        <li><strong>U.S. Senate:</strong> senate.gov</li>
-                        <li><strong>State Legislators:</strong> Your state government website (e.g., nj.gov for New Jersey)</li>
+                        <li><strong>U.S. House:</strong> <a href="https://www.house.gov/representatives/find-your-representative" target="_blank">house.gov/representatives/find-your-representative</a></li>
+                        <li><strong>U.S. Senate:</strong> <a href="https://www.senate.gov" target="_blank">senate.gov</a></li>
+                        <li><strong>State Legislators:</strong> Your state government website (e.g., <a href="https://www.nj.gov" target="_blank">nj.gov</a> for New Jersey)</li>
                     </ul>
                     <h4>What to Say:</h4>
                     <p><em>"I urge you to oppose federal education funding cuts and support robust federal investment in K-12 education. Teacher shortages are severe in my community. We need strong federal support for schools, especially in high-poverty districts."</em></p>
@@ -699,7 +871,7 @@
                     </ul>
                     <h4>Financial Support:</h4>
                     <ul>
-                        <li>DonorsChoose.org — Fund specific teacher projects</li>
+                        <li><a href="https://www.donorschoose.org" target="_blank">DonorsChoose.org</a> — Fund specific teacher projects</li>
                         <li>Local school fundraisers (PTA, booster clubs)</li>
                         <li>Direct donations to school supply budgets</li>
                     </ul>
@@ -1245,7 +1417,7 @@
                     <ul>
                         <li><strong>Goal:</strong> Get student signatures supporting education funding/specific program protection</li>
                         <li><strong>Format:</strong> Simple petition: <em>"We students support full funding for public education. We need...</em> [specific demand]"</li>
-                        <li><strong>Collection:</strong> Tables at lunch, digital petition (Change.org)</li>
+                        <li><strong>Collection:</strong> Tables at lunch, digital petition (<a href="https://www.change.org" target="_blank">Change.org</a>)</li>
                         <li><strong>Target:</strong> 25%+ of student body = powerful statement</li>
                         <li><strong>Delivery:</strong> Present at school board meeting with big group</li>
                     </ul>
@@ -1290,8 +1462,8 @@
                 <div class="collapse-content">
                     <h4>Find Your Representatives:</h4>
                     <ul>
-                        <li>house.gov/representatives/find-your-representative (U.S. House)</li>
-                        <li>senate.gov (U.S. Senate)</li>
+                        <li><a href="https://www.house.gov/representatives/find-your-representative" target="_blank">house.gov/representatives/find-your-representative</a> (U.S. House)</li>
+                        <li><a href="https://www.senate.gov" target="_blank">senate.gov</a> (U.S. Senate)</li>
                         <li>Your state legislature website</li>
                     </ul>
                     <h4>What to Say:</h4>
@@ -1505,28 +1677,28 @@
                 <div class="card">
                     <h3>JerseyCAN</h3>
                     <p><strong>Parent-led advocacy for education policy.</strong> Offers paid education advocacy fellowships for teachers and parents. Great way to get involved and learn about policy.</p>
-                    <p><strong>Contact:</strong> jerseycan.org or look for 2025-26 fellowship application</p>
+                    <p><strong>Contact:</strong> <a href="https://jerseycan.org" target="_blank">jerseycan.org</a> or look for 2025-26 fellowship application</p>
                     <p><strong>For you:</strong> Parents/teachers interested in deeper policy work</p>
                 </div>
 
                 <div class="card">
                     <h3>New Jersey Education Association (NJEA)</h3>
                     <p><strong>Teachers' union with ~200,000 members.</strong> Advocacy, legal support, professional development resources. Local chapters in every district.</p>
-                    <p><strong>Contact:</strong> njea.org</p>
+                    <p><strong>Contact:</strong> <a href="https://www.njea.org" target="_blank">njea.org</a></p>
                     <p><strong>For you:</strong> Teachers looking for union membership, support, advocacy</p>
                 </div>
 
                 <div class="card">
                     <h3>Advocates for Children of New Jersey</h3>
                     <p><strong>Policy advocacy nonprofit.</strong> Works on education equity, special education, funding. Provides resources and advocacy support.</p>
-                    <p><strong>Contact:</strong> acnj.org</p>
+                    <p><strong>Contact:</strong> <a href="https://acnj.org" target="_blank">acnj.org</a></p>
                     <p><strong>For you:</strong> Families concerned about education equity, special education rights</p>
                 </div>
 
                 <div class="card">
                     <h3>New Jersey's Teacher Workforce Resources</h3>
                     <p><strong>Heldrich Center at Rutgers University.</strong> Publishes annual reports on NJ teacher workforce, shortages, trends. Data-driven insights.</p>
-                    <p><strong>Contact:</strong> bloustein.rutgers.edu/heldrich</p>
+                    <p><strong>Contact:</strong> <a href="https://bloustein.rutgers.edu/heldrich" target="_blank">bloustein.rutgers.edu/heldrich</a></p>
                     <p><strong>For you:</strong> Anyone wanting to understand NJ education workforce data</p>
                 </div>
             </div>
@@ -1535,7 +1707,7 @@
             <div class="highlight-box">
                 <h4>Official NJ Resources:</h4>
                 <ul>
-                    <li><strong>NJ Department of Education:</strong> nj.gov/education/certification/ — Official cert requirements, approved programs</li>
+                    <li><strong>NJ Department of Education:</strong> <a href="https://www.nj.gov/education/certification/" target="_blank">nj.gov/education/certification/</a> — Official cert requirements, approved programs</li>
                     <li><strong>Brookdale Community College Alternate Route:</strong> AAQEP-accredited alternative certification, affordable</li>
                     <li><strong>Kean University Alternate Route:</strong> University-based alternative program</li>
                     <li><strong>County colleges:</strong> Many offer alternative certification programs (lower cost than universities)</li>
@@ -1547,9 +1719,9 @@
                 <h4>Track the Money:</h4>
                 <ul>
                     <li><strong>Your district's budget:</strong> Request from superintendent or school board. Shows what's funded, what's cut.</li>
-                    <li><strong>NJ State Budget:</strong> nj.gov — Look for education funding allocations (usually June)</li>
+                    <li><strong>NJ State Budget:</strong> <a href="https://www.nj.gov" target="_blank">nj.gov</a> — Look for education funding allocations (usually June)</li>
                     <li><strong>School Funding Reform Act (SFRA):</strong> State law determining how much each district gets. NJ currently fully funding (good!)</li>
-                    <li><strong>NJSBA (School Boards Association):</strong> njsba.org — Updates on state funding, policy changes</li>
+                    <li><strong>NJSBA (School Boards Association):</strong> <a href="https://www.njsba.org" target="_blank">njsba.org</a> — Updates on state funding, policy changes</li>
                 </ul>
             </div>
 
@@ -1558,25 +1730,25 @@
                 <h4>Federal (for federal funding/policy):</h4>
                 <div class="checklist-item">
                     <input type="checkbox" id="nj1">
-                    <label for="nj1"><strong>U.S. Senate (2 senators):</strong> senate.gov</label>
+                    <label for="nj1"><strong>U.S. Senate (2 senators):</strong> <a href="https://www.senate.gov" target="_blank">senate.gov</a></label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="nj2">
-                    <label for="nj2"><strong>U.S. House (13 representatives):</strong> house.gov</label>
+                    <label for="nj2"><strong>U.S. House (13 representatives):</strong> <a href="https://www.house.gov" target="_blank">house.gov</a></label>
                 </div>
 
                 <h4>State (for state funding/policy):</h4>
                 <div class="checklist-item">
                     <input type="checkbox" id="nj3">
-                    <label for="nj3"><strong>Governor Phil Murphy:</strong> nj.gov</label>
+                    <label for="nj3"><strong>Governor Phil Murphy:</strong> <a href="https://www.nj.gov" target="_blank">nj.gov</a></label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="nj4">
-                    <label for="nj4"><strong>State Senate (40 members):</strong> njleg.state.nj.us</label>
+                    <label for="nj4"><strong>State Senate (40 members):</strong> <a href="https://www.njleg.state.nj.us" target="_blank">njleg.state.nj.us</a></label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="nj5">
-                    <label for="nj5"><strong>State House (80 members):</strong> njleg.state.nj.us</label>
+                    <label for="nj5"><strong>State House (80 members):</strong> <a href="https://www.njleg.state.nj.us" target="_blank">njleg.state.nj.us</a></label>
                 </div>
 
                 <h4>Local (for school/district policy):</h4>
@@ -1664,10 +1836,29 @@
         <p><strong>Education Crisis Action Hub</strong> | January 2026</p>
         <p>This website synthesizes research on 2025-2026 federal education policy changes and provides actionable solutions for parents, teachers, and students.</p>
         <p>For questions, corrections, or to suggest resources: Contact your local education advocacy organizations.</p>
+        
+        <p>
+            <a href="https://NahuceGVI.org" target="_blank" style="color: var(--color-orange-400); text-decoration: underline;">
+                V2Gmultimedia | TheInvenityCosmic | NahuceGVI.org
+            </a>
+        </p>
+
+        <div class="disclaimer-box">
+            <p><strong>Disclaimer:</strong> This website is an educational resource created for informational purposes only. It is not official legal advice and is not affiliated with any government agency. "D.R.I.P. Certified" refers to the Digital Resume Interactive Portfolio format. Please use this information as a starting point for your own research and advocacy.</p>
+        </div>
+
         <p>Last updated: January 8, 2026 | Stay informed. Stay active. Your voice matters.</p>
     </footer>
 
     <script>
+        function closeSplash() {
+            const splash = document.getElementById('splash-screen');
+            if (splash) {
+                splash.classList.add('hidden');
+                document.body.classList.remove('splash-active');
+            }
+        }
+
         function switchSection(sectionId) {
             // Hide all sections
             const sections = document.querySelectorAll('.section');
