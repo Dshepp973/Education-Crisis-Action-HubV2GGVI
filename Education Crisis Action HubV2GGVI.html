@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Crisis Action Hub | Solutions for Parents, Teachers & Students</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-orange-500);
+            --color-primary-hover: var(--color-orange-400);
+            --color-accent: var(--color-red-500);
+            --color-success: rgba(34, 197, 94, 1);
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-focus-ring: rgba(168, 75, 47, 0.4);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(94, 82, 64, 0.12);
+
+            --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            --font-family-mono: 'Monaco', 'Menlo', monospace;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-2xl: 24px;
+            --font-size-3xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --space-4: 4px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+        }
+
+        body {
+            line-height: var(--line-height-normal);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--color-slate-900) 0%, var(--color-charcoal-800) 100%);
+            color: var(--color-white);
+            padding: var(--space-24) var(--space-16);
+            text-align: center;
+            border-bottom: 4px solid var(--color-red-500);
+        }
+
+        header h1 {
+            margin: 0 0 var(--space-8) 0;
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            letter-spacing: -0.01em;
+        }
+
+        header p {
+            margin: 0;
+            font-size: var(--font-size-lg);
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-16);
+            display: flex;
+            gap: var(--space-16);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            padding: var(--space-12) 0;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-24) var(--space-16);
+        }
+
+        /* Section */
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-title {
+            font-size: var(--font-size-3xl);
+            margin: 0 0 var(--space-24) 0;
+            color: var(--color-slate-900);
+            border-left: 4px solid var(--color-primary);
+            padding-left: var(--space-16);
+        }
+
+        .section-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            margin: 0 0 var(--space-24) 0;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Crisis Alert */
+        .crisis-alert {
+            background: linear-gradient(135deg, rgba(192, 21, 47, 0.15) 0%, rgba(255, 84, 89, 0.08) 100%);
+            border-left: 4px solid var(--color-red-500);
+            border-radius: var(--radius-base);
+            padding: var(--space-20);
+            margin-bottom: var(--space-24);
+        }
+
+        .crisis-alert h3 {
+            margin: 0 0 var(--space-12) 0;
+            color: var(--color-red-500);
+            font-size: var(--font-size-xl);
+        }
+
+        .crisis-alert p {
+            margin: var(--space-8) 0;
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+        }
+
+        .crisis-alert strong {
+            color: var(--color-slate-900);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-20);
+            margin-bottom: var(--space-24);
+        }
+
+        .card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-20);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            margin: 0 0 var(--space-12) 0;
+            color: var(--color-slate-900);
+            font-size: var(--font-size-lg);
+        }
+
+        .card p {
+            margin: 0 0 var(--space-12) 0;
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+        }
+
+        .card-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(168, 75, 47, 0.15);
+            border-radius: var(--radius-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-12);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-12) var(--space-20);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+
+        .btn--primary {
+            background-color: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn--primary:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .btn--secondary {
+            background-color: rgba(168, 75, 47, 0.12);
+            color: var(--color-primary);
+        }
+
+        .btn--secondary:hover {
+            background-color: rgba(168, 75, 47, 0.2);
+        }
+
+        .btn--small {
+            padding: var(--space-8) var(--space-16);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: var(--space-24);
+            color: var(--color-text);
+        }
+
+        li {
+            margin-bottom: var(--space-12);
+            line-height: var(--line-height-normal);
+        }
+
+        li strong {
+            color: var(--color-slate-900);
+        }
+
+        /* Action Checklist */
+        .action-checklist {
+            background-color: var(--color-surface);
+            border-left: 4px solid var(--color-success);
+            border-radius: var(--radius-base);
+            padding: var(--space-20);
+            margin-bottom: var(--space-24);
+        }
+
+        .action-checklist h3 {
+            margin: 0 0 var(--space-16) 0;
+            color: var(--color-slate-900);
+            font-size: var(--font-size-lg);
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+            padding: var(--space-12);
+            background-color: rgba(34, 197, 94, 0.05);
+            border-radius: var(--radius-base);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--color-success);
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex-grow: 1;
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+        }
+
+        .checklist-item input[type="checkbox"]:checked + label {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-24);
+            margin-bottom: var(--space-24);
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background-color: rgba(252, 206, 39, 0.1);
+            border-left: 4px solid rgba(252, 206, 39, 0.8);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            margin: var(--space-16) 0;
+        }
+
+        .highlight-box strong {
+            color: var(--color-slate-900);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-charcoal-700);
+            color: var(--color-gray-200);
+            text-align: center;
+            padding: var(--space-24);
+            margin-top: var(--space-32);
+            font-size: var(--font-size-sm);
+            border-top: 1px solid var(--color-border);
+        }
+
+        footer p {
+            margin: var(--space-8) 0;
+        }
+
+        footer a {
+            color: var(--color-orange-400);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            header p {
+                font-size: var(--font-size-md);
+            }
+
+            .nav-item {
+                font-size: var(--font-size-sm);
+                padding: var(--space-8) 0;
+            }
+
+            .section-title {
+                font-size: var(--font-size-2xl);
+            }
+        }
+
+        /* Collapse */
+        .collapse-item {
+            margin-bottom: var(--space-12);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            overflow: hidden;
+        }
+
+        .collapse-header {
+            background-color: var(--color-surface);
+            padding: var(--space-16);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: var(--font-weight-medium);
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .collapse-header:hover {
+            background-color: rgba(168, 75, 47, 0.05);
+        }
+
+        .collapse-content {
+            display: none;
+            padding: var(--space-16);
+            background-color: var(--color-white);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .collapse-content.show {
+            display: block;
+        }
+
+        .collapse-icon {
+            transition: transform 0.2s;
+            font-size: var(--font-size-lg);
+        }
+
+        .collapse-icon.open {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚠️ Education Crisis Action Hub</h1>
+        <p>Understanding the 2025-2026 Changes to Teaching, Degrees & Education Funding — and What We Can Do About It</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-item active" onclick="switchSection('understand')">🎓 The Crisis</div>
+            <div class="nav-item" onclick="switchSection('parents')">👨‍👩‍👧 For Parents</div>
+            <div class="nav-item" onclick="switchSection('teachers')">👩‍🏫 For Teachers</div>
+            <div class="nav-item" onclick="switchSection('students')">👨‍🎓 For Students</div>
+            <div class="nav-item" onclick="switchSection('solutions')">💡 Solutions</div>
+            <div class="nav-item" onclick="switchSection('nj')">🗽 NJ Resources</div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- THE CRISIS SECTION -->
+        <section id="understand" class="section active">
+            <h2 class="section-title">🎓 What's Actually Happening?</h2>
+            <p class="section-subtitle">A breakdown of federal changes affecting teaching, education degrees, and your family</p>
+
+            <div class="crisis-alert">
+                <h3>⚡ The Core Changes (January-November 2025)</h3>
+                <p><strong>Teaching degrees no longer count as "professional"</strong> — Starting July 1, 2026, federal student loans for education graduate programs will be capped at $20,500/year and $100,000 lifetime, down from $50,000/year and $200,000 lifetime. This matches loans for undergraduate borrowing, not graduate work.</p>
+                <p><strong>Federal Department of Education being dismantled</strong> — 50% of staff cut. K-12 and higher ed functions moved to Department of Labor. Impacts funding distribution, oversight, civil rights enforcement.</p>
+                <p><strong>$5+ billion in K-12 funding cuts proposed</strong> — Programs for migrant students, English language learners, rural schools, and after-school activities eliminated or dramatically reduced.</p>
+                <p><strong>Teacher preparation funding slashed</strong> — Programs supporting minority teacher recruitment, teacher quality, and school leader development eliminated.</p>
+            </div>
+
+            <h3>What This Means in Plain English</h3>
+            <ul>
+                <li><strong>For aspiring teachers:</strong> Graduate education (Master's degrees, administrative licenses) becomes unaffordable for most families. Private loans required.</li>
+                <li><strong>For current teachers:</strong> Advancement through graduate education blocked. Career stagnation likely. Federal support for professional development cut.</li>
+                <li><strong>For schools:</strong> Fewer qualified principals, special education coordinators, curriculum specialists. Higher reliance on minimally trained substitute teachers.</li>
+                <li><strong>For students:</strong> Larger class sizes, fewer support services, reduced arts/humanities programs, increasing educational inequality between wealthy and poor districts.</li>
+                <li><strong>For families:</strong> Federal protections weakened. Schools less accountable. Special education, civil rights enforcement less robust.</li>
+            </ul>
+
+            <h3>Why This Matters</h3>
+            <div class="highlight-box">
+                <strong>Teacher shortages are already severe.</strong> 1 in 8 teaching positions nationwide either unfilled or filled by uncertified teachers. Special education and STEM positions are critically understaffed. These policy changes will make recruitment and retention harder, not easier.
+            </div>
+
+            <h3>5-10 Year Impact</h3>
+            <p>Without intervention, experts predict:</p>
+            <ul>
+                <li><strong>2028:</strong> Graduate education enrollment in teaching drops 20-40%. Alternative certification programs expand, with quality concerns.</li>
+                <li><strong>2031:</strong> Two-tier education system: well-funded private/wealthy schools with qualified teachers; underfunded public schools with emergency-credentialed staff.</li>
+                <li><strong>2036:</strong> Profession stratified. International teachers fill gaps. AI systems handle instruction. Teaching becomes occupation-prep focused, not liberal arts education.</li>
+            </ul>
+        </section>
+
+        <!-- FOR PARENTS SECTION -->
+        <section id="parents" class="section">
+            <h2 class="section-title">👨‍👩‍👧 Action Guide for Parents</h2>
+            <p class="section-subtitle">You have more power than you think. Here's how to protect your child's education and future.</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🗣️</div>
+                    <h3>Speak Up at School Board Meetings</h3>
+                    <p>Attend monthly school board meetings (find schedule on your district website). Sign up to speak during public comment. Talk about teacher shortages, class sizes, and education quality in your district.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('pb1')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3>Contact Your Elected Representatives</h3>
+                    <p>Call/email your state legislators and U.S. representatives. Tell them: <em>"Protect federal education funding. Don't defund schools in our community."</em> Find contacts at house.gov, senate.gov, or your state legislature website.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('pb2')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Join Parent Advocacy Groups</h3>
+                    <p>Connect with organized parent networks fighting to protect education. Find groups like <strong>Public School Strong</strong>, <strong>Rescue Our Schools</strong>, or <strong>JerseyCAN</strong> (in NJ) working on policy advocacy.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('pb3')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Support Teachers Directly</h3>
+                    <p>Teachers buy classroom supplies out of pocket (~$500/year average). Contribute to school supply drives, fundraisers, and teacher appreciation events. Advocate for higher teacher pay at budget meetings.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('pb4')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Advocate Against Program Cuts</h3>
+                    <p>If your district proposes cutting: arts, languages, after-school programs, ESL support, or special education services — organize. Form a parent committee. Collect signatures. Present at board meetings.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('pb5')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Track Local Policy Changes</h3>
+                    <p>Subscribe to your district's email updates. Attend annual budget meetings. Monitor school board agendas (usually posted 3-5 days before meetings). Speak early on proposed changes.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('pb6')">Learn More</button>
+                </div>
+            </div>
+
+            <h3>Parent Action Checklist</h3>
+            <div class="action-checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Find your school board meeting schedule and attend next month</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Identify your state representatives (senate + house) and save their contact info</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Research parent advocacy groups in your area and join one</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">Talk to your child's teacher about what support they need most</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">Share this information with at least 3 other parents at your school</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">Write or call one elected representative with education concerns</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7">
+                    <label for="check7">Volunteer for your school PTA/PTO or join budget committee</label>
+                </div>
+            </div>
+
+            <!-- Collapse sections -->
+            <div class="collapse-item" id="collapse-pb1">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Speaking at School Board Meetings</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>How to Prepare:</h4>
+                    <ol>
+                        <li>Check your district website for board meeting schedule (usually posted monthly)</li>
+                        <li>Review the agenda posted 3-5 days before the meeting</li>
+                        <li>Write a brief statement (2-3 minutes max) about your concern: <br/><em>"My daughter's class has 32 students. She's not getting enough attention. We need smaller class sizes and more teacher support."</em></li>
+                        <li>Arrive early to sign up for public comment</li>
+                        <li>Speak clearly, calmly, make eye contact with board members</li>
+                    </ol>
+                    <h4>What to Talk About:</h4>
+                    <ul>
+                        <li>Teacher shortages in your school/subject area</li>
+                        <li>Class size increases</li>
+                        <li>Programs being cut (arts, languages, special education)</li>
+                        <li>Student needs not being met</li>
+                        <li>Teacher pay and working conditions</li>
+                        <li>Impact of federal funding cuts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-pb2">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Contacting Elected Officials</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Find Your Representatives:</h4>
+                    <ul>
+                        <li><strong>U.S. House:</strong> house.gov/representatives/find-your-representative</li>
+                        <li><strong>U.S. Senate:</strong> senate.gov</li>
+                        <li><strong>State Legislators:</strong> Your state government website (e.g., nj.gov for New Jersey)</li>
+                    </ul>
+                    <h4>What to Say:</h4>
+                    <p><em>"I urge you to oppose federal education funding cuts and support robust federal investment in K-12 education. Teacher shortages are severe in my community. We need strong federal support for schools, especially in high-poverty districts."</em></p>
+                    <h4>Best Methods:</h4>
+                    <ol>
+                        <li><strong>Phone call:</strong> Most effective. Leave message with name, address, what issue you support/oppose.</li>
+                        <li><strong>Email:</strong> Use official contact forms on representatives' websites</li>
+                        <li><strong>Town halls:</strong> Attend in-person meetings (especially before elections)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-pb3">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Parent Advocacy Organizations</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>National Groups:</h4>
+                    <ul>
+                        <li><strong>Public School Strong</strong> — Parent-led organization to protect and fund public schools (started in North Carolina, expanding nationally)</li>
+                        <li><strong>Rescue Our Schools</strong> — Coalition of parents, teachers, and students fighting for education equity</li>
+                        <li><strong>National Education Association (NEA)</strong> — Teachers' union with parent advocacy resources</li>
+                        <li><strong>Alliance to Reclaim Our Schools (AROS)</strong> — National coalition supporting local campaigns for education justice</li>
+                    </ul>
+                    <h4>New Jersey-Specific:</h4>
+                    <ul>
+                        <li><strong>JerseyCAN</strong> — Parent-led advocacy for education policy in NJ. Offers paid advocacy fellowships.</li>
+                        <li><strong>New Jersey Education Association (NJEA)</strong> — Teachers' union, parent resources</li>
+                        <li><strong>Advocates for Children of New Jersey</strong> — Policy advocacy for education equity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-pb4">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Supporting Teachers Directly</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Immediate Actions:</h4>
+                    <ul>
+                        <li>Ask your child's teacher: <em>"What supplies do you need most? What would help your classroom?"</em></li>
+                        <li>Contribute to school supply drives (often in August/September)</li>
+                        <li>Volunteer in the classroom</li>
+                        <li>Attend teacher appreciation events</li>
+                        <li>Write thank-you notes to teachers</li>
+                    </ul>
+                    <h4>Systemic Actions:</h4>
+                    <ul>
+                        <li>Advocate for higher teacher salaries at budget meetings</li>
+                        <li>Support school bond measures/funding increases</li>
+                        <li>Push for paid professional development time</li>
+                        <li>Advocate against performance-based pay that punishes teachers in struggling schools</li>
+                    </ul>
+                    <h4>Financial Support:</h4>
+                    <ul>
+                        <li>DonorsChoose.org — Fund specific teacher projects</li>
+                        <li>Local school fundraisers (PTA, booster clubs)</li>
+                        <li>Direct donations to school supply budgets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-pb5">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Defending Programs Against Cuts</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>When Your District Proposes Cuts:</h4>
+                    <ol>
+                        <li><strong>Document the impact:</strong> How many students affected? What will students lose?</li>
+                        <li><strong>Get data:</strong> Request student enrollment, performance data, survey results</li>
+                        <li><strong>Organize quickly:</strong> Form a parent committee. Use email, social media, parent groups.</li>
+                        <li><strong>Build coalition:</strong> Team with teachers, students, community organizations</li>
+                        <li><strong>Public campaign:</strong> Gather signatures. Write letters to editor. Speak at board meetings.</li>
+                        <li><strong>Propose alternatives:</strong> Suggest other budget cuts instead. Ask for creative fundraising.</li>
+                    </ol>
+                    <h4>Programs Worth Fighting For:</h4>
+                    <ul>
+                        <li>Special education services and specialized teachers</li>
+                        <li>English as a Second Language (ESL) instruction</li>
+                        <li>Arts, music, theater programs</li>
+                        <li>Librarians and library services</li>
+                        <li>School counselors and social workers</li>
+                        <li>After-school programs and athletics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-pb6">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Tracking Local Policy Changes</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Stay Informed:</h4>
+                    <ul>
+                        <li>Subscribe to district email alerts (usually on school website)</li>
+                        <li>Follow superintendent's social media accounts</li>
+                        <li>Check school board website for posted agendas/minutes</li>
+                        <li>Join school PTA/PTO (get email updates)</li>
+                    </ul>
+                    <h4>Key Documents to Review:</h4>
+                    <ul>
+                        <li><strong>Annual budget:</strong> What's funded? What's cut? Released usually in April-May</li>
+                        <li><strong>Board agendas:</strong> Posted 3-5 days before each meeting</li>
+                        <li><strong>Board minutes:</strong> Decisions made, resolutions passed</li>
+                        <li><strong>5-year strategic plan:</strong> Long-term district priorities</li>
+                    </ul>
+                    <h4>Red Flags to Watch For:</h4>
+                    <ul>
+                        <li>Proposed teacher layoffs or position eliminations</li>
+                        <li>Program elimination (especially arts, languages, special education)</li>
+                        <li>Class size increases</li>
+                        <li>Acceleration of virtual learning</li>
+                        <li>Moves toward charter schools or school choice programs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOR TEACHERS SECTION -->
+        <section id="teachers" class="section">
+            <h2 class="section-title">👩‍🏫 Action Guide for Teachers</h2>
+            <p class="section-subtitle">Protect your profession, your students, and your future. Here's how.</p>
+
+            <div class="crisis-alert">
+                <h3>⚠️ What's at Stake for You</h3>
+                <p><strong>Your graduate education is becoming financially inaccessible.</strong> Master's degrees, specialist certifications, doctoral programs — all becoming harder to afford as federal loan limits cap out at $20,500/year.</p>
+                <p><strong>Professional status is being degraded.</strong> Teaching no longer counts as a "professional" degree. Symbolic and practical implications for pay, benefits, and respect.</p>
+                <p><strong>Career advancement is being blocked.</strong> Fewer resources for professional development. Graduate program enrollment dropping. Leadership pipeline shrinking.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Unite with Colleague Networks</h3>
+                    <p>Connect with fellow teachers. Join teacher unions or professional organizations. Attend meetings. Build collective power. Unions have legal resources, advocacy capacity, and collective bargaining strength.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('t1')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Speak to Parents & Community</h3>
+                    <p>Share your professional challenges with parents and community members. Talk about class sizes, lack of support staff, insufficient materials. Parents have political power. Give them a teacher's perspective.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('t2')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📢</div>
+                    <h3>Advocate Publicly</h3>
+                    <p>Op-eds in local newspapers. Social media. Speaking to elected officials. Tell the story of what it's like to teach under these conditions. Share specific stories (with student privacy protections).</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('t3')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Plan Graduate Education Strategically</h3>
+                    <p>If pursuing master's/specialist degree: Investigate state grants, tuition reimbursement from your district, employer-sponsored programs, scholarships. Don't assume federal loans will cover costs. Explore affordable alternative routes (community colleges, online programs).</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('t4')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Document Working Conditions</h3>
+                    <p>Keep records of: class sizes, lack of support staff, materials shortages, safety issues, unreasonable workloads. Documentation strengthens advocacy efforts and provides evidence for union negotiations.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('t5')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <h3>Support New Teachers</h3>
+                    <p>Mentor early-career teachers. Help them navigate policy chaos. Advocate for mentorship programs. Strong teacher induction programs improve retention. New teachers are especially vulnerable to burnout under current conditions.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('t6')">Learn More</button>
+                </div>
+            </div>
+
+            <h3>Teacher Action Checklist</h3>
+            <div class="action-checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check8">
+                    <label for="check8">Join or renew membership in teacher union/professional organization</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check9">
+                    <label for="check9">Attend next union/professional organization meeting</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check10">
+                    <label for="check10">Research graduate education funding options (state grants, employer reimbursement, scholarships)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check11">
+                    <label for="check11">Talk to parents about working conditions and classroom needs</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check12">
+                    <label for="check12">Write down 3 specific examples of how policy changes are affecting your classroom</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check13">
+                    <label for="check13">Share this information with colleagues and encourage action</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check14">
+                    <label for="check14">Speak to your principal about how federal/state policy changes affect your school</label>
+                </div>
+            </div>
+
+            <!-- Collapse sections for teachers -->
+            <div class="collapse-item" id="collapse-t1">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Teacher Unions & Professional Organizations</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Why Join a Union?</h4>
+                    <ul>
+                        <li>Collective bargaining power (affects salary, benefits, working conditions)</li>
+                        <li>Legal representation and support</li>
+                        <li>Professional development resources</li>
+                        <li>Advocacy on policy issues</li>
+                        <li>Peer support and networking</li>
+                    </ul>
+                    <h4>National Organizations:</h4>
+                    <ul>
+                        <li><strong>National Education Association (NEA)</strong> — Largest union, 3 million members</li>
+                        <li><strong>American Federation of Teachers (AFT)</strong> — Second-largest union, strong advocacy</li>
+                        <li><strong>Subject-specific organizations:</strong> NCTM (math), NCTE (English), NSTA (science), etc.</li>
+                    </ul>
+                    <h4>New Jersey:</h4>
+                    <ul>
+                        <li><strong>New Jersey Education Association (NJEA)</strong> — Statewide union, active advocacy</li>
+                        <li>Local affiliates in each district</li>
+                    </ul>
+                    <h4>What to Do:</h4>
+                    <ol>
+                        <li>Ask colleagues who are members about their experience</li>
+                        <li>Contact local union chapter or state organization</li>
+                        <li>Attend a meeting or event</li>
+                        <li>Ask about membership benefits relevant to your situation</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-t2">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Communicating with Parents About Teaching Challenges</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>What to Share (Examples):</h4>
+                    <ul>
+                        <li><em>"My classroom has 32 students with widely varying abilities. I don't have enough paraprofessional support to help students who need it. Class needs to be 20-25 students maximum for effective instruction."</em></li>
+                        <li><em>"We have one school counselor for 800 students. Students with mental health needs aren't getting support they deserve."</em></li>
+                        <li><em>"I'm spending $500 of my own money annually on classroom supplies and materials. This should be funded by the school."</em></li>
+                        <li><em>"Federal funding cuts mean we're losing our librarian and cutting after-school programs. These are crucial for student success."</em></li>
+                    </ul>
+                    <h4>How to Share:</h4>
+                    <ul>
+                        <li>Parent-teacher conferences: Share specific needs</li>
+                        <li>Class newsletter: Update parents on classroom needs and successes</li>
+                        <li>School events: Talk to parents informally</li>
+                        <li>Email: Direct communication (keep professional tone)</li>
+                        <li><strong>NOTE:</strong> Avoid criticizing individual students or specific parents. Focus on systemic issues and classroom needs.</li>
+                    </ul>
+                    <h4>Encourage Parent Advocacy:</h4>
+                    <ul>
+                        <li><em>"I need your help. If you agree that classes need to be smaller, please speak at the school board meeting next month."</em></li>
+                        <li><em>"Our district is considering cutting the librarian position. Students depend on library instruction. Would you contact the superintendent?"</em></li>
+                        <li>Share contact info for elected representatives</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-t3">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Public Advocacy for Teachers</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Op-Eds & Letters to Editor:</h4>
+                    <ul>
+                        <li>Write to your local newspaper (200-400 words)</li>
+                        <li>Topic examples: <em>"Why Teacher Shortages Are a Crisis for Students"</em>, <em>"Class Sizes Are Too Large — My Students Are Suffering"</em></li>
+                        <li>Include your experience, data, specific examples (without naming students)</li>
+                        <li>Contact info: [Your name], [Your title: "I teach high school biology"], [Email/phone]</li>
+                    </ul>
+                    <h4>Social Media:</h4>
+                    <ul>
+                        <li>Share (anonymously, if needed) about teaching conditions</li>
+                        <li>Share student successes despite challenges</li>
+                        <li>Link to education advocacy organizations</li>
+                        <li>Use hashtags: #TeachersMatter #PublicEducationMatters #SupportTeachers</li>
+                    </ul>
+                    <h4>Speaking to Officials:</h4>
+                    <ul>
+                        <li>School board meetings: Speak as a teacher/professional</li>
+                        <li>Superintendent meetings: Request time to discuss classroom needs</li>
+                        <li>Elected officials: Share your perspective on education policy</li>
+                    </ul>
+                    <h4>Professional Cautions:</h4>
+                    <ul>
+                        <li>Check your district's social media policy</li>
+                        <li>Never share student names, photos, or identifying information</li>
+                        <li>Keep tone professional and fact-based</li>
+                        <li>Consider whether anonymity protects your job security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-t4">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Financing Graduate Education</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Federal Loans (Now Capped):</h4>
+                    <ul>
+                        <li>Grad/Non-Professional loans: $20,500/year, $100,000 lifetime</li>
+                        <li>This covers ~$60,000-$80,000 of a full master's program</li>
+                        <li>Gap must be filled: scholarships, grants, employer reimbursement, private loans</li>
+                    </ul>
+                    <h4>Employer-Sponsored Programs:</h4>
+                    <ul>
+                        <li>Many school districts offer tuition reimbursement</li>
+                        <li>Ask your HR department: "Do we offer tuition assistance for graduate education?"</li>
+                        <li>Amount varies: $1,000-$5,000/year typical</li>
+                        <li>May require agreement to work in district for X years</li>
+                    </ul>
+                    <h4>State Grants & Scholarships:</h4>
+                    <ul>
+                        <li>Most states offer scholarships for teaching/education degrees</li>
+                        <li>NJ: Contact your state DOE or university for state-specific options</li>
+                        <li>FAFSA (Free Application for Federal Student Aid): Primary tool for aid</li>
+                    </ul>
+                    <h4>Alternative Programs (Lower Cost):</h4>
+                    <ul>
+                        <li>Community college master's programs: Often cheaper than universities</li>
+                        <li>Online programs: Sometimes more affordable than in-person</li>
+                        <li>Evening/weekend programs: Allow continued teaching while studying</li>
+                        <li>Specialized certifications: May be cheaper than full master's degree</li>
+                    </ul>
+                    <h4>Before Committing to a Program:</h4>
+                    <ol>
+                        <li>Calculate total cost (tuition + fees + books + living expenses)</li>
+                        <li>Research all financial aid options (employer, state, federal, scholarships)</li>
+                        <li>Determine how much you can afford to borrow</li>
+                        <li>Explore lower-cost alternative pathways</li>
+                        <li>Talk to current students about affordability</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-t5">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Documenting Working Conditions</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>What to Track:</h4>
+                    <ul>
+                        <li><strong>Class size:</strong> Number of students in each class, compared to district/state recommendations</li>
+                        <li><strong>Special needs:</strong> Number of students with IEPs, 504 plans, ELL, behavior challenges vs. available support</li>
+                        <li><strong>Support staff:</strong> Paraprofessionals, counselors, specialists available to your classes</li>
+                        <li><strong>Materials/supplies:</strong> What's provided vs. what you buy yourself</li>
+                        <li><strong>Professional development:</strong> Time/resources available for growth</li>
+                        <li><strong>Workload:</strong> Hours per week (including grading, planning, emails)</li>
+                        <li><strong>Safety issues:</strong> Unsafe conditions, student behavior affecting safety</li>
+                    </ul>
+                    <h4>How to Document:</h4>
+                    <ul>
+                        <li>Keep a simple log (Excel, Google Sheets, or notebook)</li>
+                        <li>Record date, issue, brief description</li>
+                        <li>Include numbers where possible (class size, cost of materials)</li>
+                        <li>Avoid emotional language; stick to facts</li>
+                        <li>Store securely (personal device or secure cloud storage)</li>
+                    </ul>
+                    <h4>Uses for Documentation:</h4>
+                    <ul>
+                        <li>Union negotiations: Evidence for demands</li>
+                        <li>Advocacy efforts: Data to share with parents, media</li>
+                        <li>Principal discussions: Factual basis for requests</li>
+                        <li>Legal issues: If employment disputes arise</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-t6">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Supporting New Teachers</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Why This Matters:</h4>
+                    <p>First 3-5 years are critical. New teachers are most likely to leave the profession due to overwhelming workload, insufficient support, and low pay. Your mentorship directly impacts retention.</p>
+                    <h4>Formal Mentorship:</h4>
+                    <ul>
+                        <li>Ask your principal if your district has a mentorship program</li>
+                        <li>Volunteer to be a mentor (often provides professional development credits)</li>
+                        <li>If no program exists, propose creating one</li>
+                    </ul>
+                    <h4>Informal Support:</h4>
+                    <ul>
+                        <li>Check in regularly: <em>"How are you doing? How can I help?"</em></li>
+                        <li>Share lesson plans, resources, classroom management strategies</li>
+                        <li>Invite them to lunch or coffee</li>
+                        <li>Normalize asking for help: <em>"I still ask for help, and I've been teaching 15 years."</em></li>
+                        <li>Share stories of early-career struggles and how you overcame them</li>
+                    </ul>
+                    <h4>Advocacy for New Teachers:</h4>
+                    <ul>
+                        <li>Advocate for reduced class sizes/teaching loads for new teachers</li>
+                        <li>Push for mentorship programs and professional development time</li>
+                        <li>Support efforts to increase starting salaries</li>
+                        <li>Help new teachers understand union resources and benefits</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOR STUDENTS SECTION -->
+        <section id="students" class="section">
+            <h2 class="section-title">👨‍🎓 Action Guide for Students</h2>
+            <p class="section-subtitle">This is your education and your future. You have a voice. Use it.</p>
+
+            <div class="crisis-alert">
+                <h3>⚠️ Why This Affects You</h3>
+                <p><strong>Class sizes are growing.</strong> Teachers have less time for each student. Less personalized attention.</p>
+                <p><strong>Programs are being cut.</strong> Arts, languages, after-school activities, counseling services that help you thrive.</p>
+                <p><strong>Your teachers are stressed and underfunded.</strong> They're buying supplies out of pocket. Working longer hours. Likely considering leaving the profession.</p>
+                <p><strong>Your future teachers are in crisis.</strong> If you want to teach, master's degrees are becoming unaffordable. Teaching profession is being devalued.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🎤</div>
+                    <h3>Speak Up at School</h3>
+                    <p>Student government. Speak at board meetings. Start a student newspaper or blog. Talk about programs being cut, what you need, how policy changes affect you. Student voices are powerful — adults listen.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('s1')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Use Social Media</h3>
+                    <p>Create awareness about education issues. Share articles, statistics, personal stories (with privacy). Use hashtags to connect with other student activists. Build momentum.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('s2')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">✍️</div>
+                    <h3>Organize Your Peers</h3>
+                    <p>Start a student club focused on education advocacy. Host informational meetings. Organize petition drives. Recruit students to speak at board meetings. Peer-to-peer organizing is powerful.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('s3')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Support Your Teachers</h3>
+                    <p>Say thank you. Tell teachers they matter. Advocate for them in student government and social media. When teachers know students care, it helps them stay committed despite challenges.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('s4')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3>Contact Elected Officials</h3>
+                    <p>Call/email your representatives. Tell them: <em>"I'm a student. Protect education funding. Don't cut programs I depend on."</em> Student voices from young voters matter to politicians.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('s5')">Learn More</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>Explore Teaching as a Career</h3>
+                    <p>If you're interested in teaching: Be aware of challenges. Research scholarships, grants, employer-sponsored programs. Consider alternative routes to reduce costs. Teaching needs dedicated people despite challenges.</p>
+                    <button class="btn btn--primary btn--small" onclick="toggleCollapse('s6')">Learn More</button>
+                </div>
+            </div>
+
+            <h3>Student Action Checklist</h3>
+            <div class="action-checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check15">
+                    <label for="check15">Learn about education policy changes and how they affect your school</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check16">
+                    <label for="check16">Tell at least 3 friends about the education crisis</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check17">
+                    <label for="check17">Share an article or statistic about education on social media</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check18">
+                    <label for="check18">Attend a student government meeting or school board meeting</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check19">
+                    <label for="check19">Write a thank-you note or email to a teacher who matters to you</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check20">
+                    <label for="check20">Contact one elected representative about education</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check21">
+                    <label for="check21">Consider starting a student education advocacy club</label>
+                </div>
+            </div>
+
+            <!-- Collapse sections for students -->
+            <div class="collapse-item" id="collapse-s1">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Student Voices at School</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Student Government:</h4>
+                    <ul>
+                        <li>Attend student government meetings</li>
+                        <li>Run for a position if interested</li>
+                        <li>Propose resolutions supporting education funding, smaller classes, program protection</li>
+                        <li>Use SG meetings to raise awareness about education issues</li>
+                    </ul>
+                    <h4>School Board Meetings:</h4>
+                    <ul>
+                        <li>Attend as a student observer</li>
+                        <li>Sign up to speak during public comment (2-3 minutes)</li>
+                        <li>Talk about programs being cut, what you need, how policies affect your education</li>
+                        <li>Bring friends to show broad student support</li>
+                    </ul>
+                    <h4>Student Newspaper/Media:</h4>
+                    <ul>
+                        <li>Write articles about education issues</li>
+                        <li>Interview students, teachers, administrators</li>
+                        <li>Start a blog or Instagram account if no newspaper exists</li>
+                        <li>Reach your peers with information</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-s2">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Social Media Activism</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>What to Post:</h4>
+                    <ul>
+                        <li>Statistics about education funding, teacher shortages, class sizes</li>
+                        <li>Personal stories: How budget cuts affect you</li>
+                        <li>Teacher appreciation: Highlight amazing teachers and what they do</li>
+                        <li>Links to advocacy organizations and resources</li>
+                        <li>Calls to action: "Contact your representatives about education funding"</li>
+                    </ul>
+                    <h4>Hashtags to Use:</h4>
+                    <ul>
+                        <li>#PublicEducationMatters</li>
+                        <li>#TeachersMatter</li>
+                        <li>#FundOurSchools</li>
+                        <li>#StudentVoices</li>
+                        <li>#EducationJustice</li>
+                        <li>#SupportTeachers</li>
+                    </ul>
+                    <h4>Be Thoughtful:</h4>
+                    <ul>
+                        <li>Share facts, not opinions (cite sources)</li>
+                        <li>Never share classmates' information without permission</li>
+                        <li>Keep tone respectful (you're trying to persuade, not attack)</li>
+                        <li>Engage others: Ask questions, start conversations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-s3">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Organizing Student Activism</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Starting an Education Advocacy Club:</h4>
+                    <ol>
+                        <li>Find 2-3 interested friends</li>
+                        <li>Contact a teacher who might sponsor the club</li>
+                        <li>Register with your school's club coordinator</li>
+                        <li>Plan your first meeting: Discuss education issues, why they matter, what action to take</li>
+                    </ol>
+                    <h4>Club Activities:</h4>
+                    <ul>
+                        <li>Monthly meetings to discuss education policy and strategy</li>
+                        <li>Petition drives (collect signatures supporting education funding)</li>
+                        <li>Information campaign: Posters, emails, social media</li>
+                        <li>Student testimonies at school board meetings</li>
+                        <li>Fundraising for teacher supplies or school programs</li>
+                        <li>Film screenings about education issues (lots available on YouTube)</li>
+                        <li>Guest speakers: Educators, policy experts, advocates</li>
+                    </ul>
+                    <h4>Petition Drive Tips:</h4>
+                    <ul>
+                        <li><strong>Goal:</strong> Get student signatures supporting education funding/specific program protection</li>
+                        <li><strong>Format:</strong> Simple petition: <em>"We students support full funding for public education. We need...</em> [specific demand]"</li>
+                        <li><strong>Collection:</strong> Tables at lunch, digital petition (Change.org)</li>
+                        <li><strong>Target:</strong> 25%+ of student body = powerful statement</li>
+                        <li><strong>Delivery:</strong> Present at school board meeting with big group</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-s4">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Supporting Teachers</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Personal Support:</h4>
+                    <ul>
+                        <li>Tell teachers thank you, specifically for what they do for you</li>
+                        <li>Write thank-you notes (teachers treasure these)</li>
+                        <li>Show up, pay attention, do your work (best support is engaged students)</li>
+                        <li>Be kind: Teaching is hard; stress affects teachers</li>
+                    </ul>
+                    <h4>Public Advocacy:</h4>
+                    <ul>
+                        <li>Speak at school board meetings about specific teachers who changed your life</li>
+                        <li>Post thank-yous on social media: <em>"Shoutout to Ms. Smith who..."</em></li>
+                        <li>In student government, push for teacher appreciation week</li>
+                        <li>Support teacher union efforts (if your state allows, students can sign union support letters)</li>
+                    </ul>
+                    <h4>Systemic Support:</h4>
+                    <ul>
+                        <li>Advocate for higher teacher salaries at board meetings</li>
+                        <li>Support reduced class sizes (which benefits both teachers and students)</li>
+                        <li>Push for adequate school budgets</li>
+                        <li>Talk to peers: <em>"Our teachers are worth investing in."</em></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-s5">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Contacting Elected Officials</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Find Your Representatives:</h4>
+                    <ul>
+                        <li>house.gov/representatives/find-your-representative (U.S. House)</li>
+                        <li>senate.gov (U.S. Senate)</li>
+                        <li>Your state legislature website</li>
+                    </ul>
+                    <h4>What to Say:</h4>
+                    <p><em>"Hi, I'm [Name], a [9th/10th/etc.] grade student at [School] in [City]. I'm calling because education funding is being cut. My teachers are amazing but under-resourced. Class sizes are too large. Programs I need are being eliminated. I urge you to oppose federal education funding cuts and increase investment in public schools."</em></p>
+                    <h4>How to Contact:</h4>
+                    <ol>
+                        <li><strong>Phone:</strong> Most effective. Call the office, leave message with your name, school, what issue you're calling about</li>
+                        <li><strong>Email:</strong> Use contact form on representative's website</li>
+                        <li><strong>Social media:</strong> Many representatives respond on Twitter/Instagram</li>
+                        <li><strong>Town hall:</strong> Attend in-person event and speak</li>
+                    </ol>
+                    <h4>With Friends:</h4>
+                    <ul>
+                        <li>Organize a group call-in day (everyone calls on same day)</li>
+                        <li>Coordinate emails from multiple students</li>
+                        <li>Attend town halls together</li>
+                        <li>Shows representatives that this is a youth issue</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-item" id="collapse-s6">
+                <div class="collapse-header" onclick="toggleContent(this)">
+                    <span>Detailed: Teaching as a Career Path</span>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <h4>Should You Consider Teaching?</h4>
+                    <p><strong>Challenges:</strong> Low pay compared to other professions, large classes, insufficient support, policy chaos, high burnout.</p>
+                    <p><strong>Rewards:</strong> Direct impact on students' lives, intellectual engagement, summers off, pension benefits in many states, serving your community.</p>
+                    <h4>If You're Interested:</h4>
+                    <ol>
+                        <li><strong>Shadow a teacher:</strong> Spend a day with a teacher in your subject of interest</li>
+                        <li><strong>Interview teachers:</strong> Ask about career satisfaction, challenges, rewards</li>
+                        <li><strong>Take education classes:</strong> Many high schools offer teacher prep intro courses</li>
+                        <li><strong>Research the field:</strong> Learn about teacher preparation programs, costs, salary expectations</li>
+                    </ol>
+                    <h4>Planning for Affordability:</h4>
+                    <ul>
+                        <li>Look for teacher preparation scholarships (many states/districts offer them)</li>
+                        <li>Consider community college pathways (cheaper)</li>
+                        <li>Research alternative certification programs (faster, sometimes cheaper)</li>
+                        <li>Ask about employer-sponsored education (many districts reimburse tuition)</li>
+                        <li>Explore grow-your-own programs (paraprofessional → teacher pathways)</li>
+                    </ul>
+                    <h4>Realistic Timeline:</h4>
+                    <ul>
+                        <li><strong>Bachelor's degree:</strong> 4 years (traditional route) or 2 years (if pairing with alternative cert)</li>
+                        <li><strong>Master's degree (optional, but increasingly important):</strong> 1-2 years additional</li>
+                        <li><strong>Starting salary:</strong> Varies by state; NJ average ~$46,500, but can reach $60,000+ in some districts</li>
+                        <li><strong>Career earnings:</strong> Top out around $80,000-$100,000 after 20+ years, depending on state</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTIONS SECTION -->
+        <section id="solutions" class="section">
+            <h2 class="section-title">💡 Community Solutions: What Actually Works</h2>
+            <p class="section-subtitle">These aren't hypothetical. These strategies have been proven effective by parents, teachers, and students across the country.</p>
+
+            <h3>Strategy 1: Alternative Teacher Preparation Pathways</h3>
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Traditional 4-year education degrees are expensive and slow. Teacher shortages are severe.</p>
+                <h4>The Solution</h4>
+                <p><strong>Alternative certification programs (ACPs)</strong> allow people with bachelor's degrees in any field to become teachers in 6-12 months (or even as little as 3 months). These programs include classroom instruction, coursework, and supervised teaching.</p>
+                <h4>Examples</h4>
+                <ul>
+                    <li><strong>Teach for America:</strong> National fellowship program. Provides training, salary, support.</li>
+                    <li><strong>Community college pathways:</strong> Many community colleges offer accredited alternative certification (much cheaper than universities)</li>
+                    <li><strong>Teachers of Tomorrow:</strong> Online ACP, flexible, affordable</li>
+                    <li><strong>District partnerships:</strong> Some districts run their own ACP to fill shortage areas</li>
+                    <li><strong>New Jersey:</strong> Brookdale Community College offers AAQEP-accredited program; Kean University runs alternate route</li>
+                </ul>
+                <h4>Community Action</h4>
+                <ul>
+                    <li>If you're interested in teaching (but don't have education degree), explore alternative routes</li>
+                    <li>Advocate for your district to partner with ACP providers to fill shortage areas</li>
+                    <li>Push for affordability: demand scholarships, employer partnerships</li>
+                </ul>
+            </div>
+
+            <h3>Strategy 2: Grow-Your-Own Teacher Programs</h3>
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Districts need teachers from their own communities who understand student backgrounds and stay long-term.</p>
+                <h4>The Solution</h4>
+                <p><strong>Grow-your-own programs</strong> start with paraprofessionals and community members, provide tuition support, and help them become full teachers. Creates stable workforce from within.</p>
+                <h4>How It Works</h4>
+                <ol>
+                    <li>District identifies promising paraprofessionals/community members</li>
+                    <li>District pays for certification (ACP, community college, university program)</li>
+                    <li>Participant agrees to teach in the district for set period (e.g., 5 years)</li>
+                    <li>Reduced financial barrier → more people enter teaching → more stable workforce</li>
+                </ol>
+                <h4>Community Action</h4>
+                <ul>
+                    <li>If you're a paraprofessional or community member interested in teaching: Advocate for your district to create this program</li>
+                    <li>Parents: Push your district to invest in grow-your-own initiatives</li>
+                    <li>Community leaders: Partner with schools to create pathways</li>
+                </ul>
+            </div>
+
+            <h3>Strategy 3: State-Level Scholarship & Loan Forgiveness Programs</h3>
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Federal loan limits ($20,500/year) insufficient for teacher preparation. Graduate programs unaffordable.</p>
+                <h4>The Solution</h4>
+                <p><strong>States create their own funding.</strong> Scholarships, grants, and loan forgiveness programs that cover gap federal loans don't fill. Teachers who work in high-need areas get better support.</p>
+                <h4>Examples</h4>
+                <ul>
+                    <li><strong>Connecticut:</strong> TEACH Grant covers tuition for teachers working in high-poverty schools</li>
+                    <li><strong>New York:</strong> Various scholarship programs for teacher preparation</li>
+                    <li><strong>Many states:</strong> Loan forgiveness programs (forgive $5,000-$10,000/year for working in shortage areas)</li>
+                </ul>
+                <h4>Community Action</h4>
+                <ul>
+                    <li><strong>Advocate to your state legislators:</strong> <em>"Create state scholarships and loan forgiveness for teachers. Federal loans no longer cover full cost of preparation."</em></li>
+                    <li>Support bond measures that fund education</li>
+                    <li>Teachers: Look for existing state programs (contact your state DOE)</li>
+                </ul>
+            </div>
+
+            <h3>Strategy 4: District-Level Professional Development Funds</h3>
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Teachers need professional development but can't afford to pay for it themselves. Federal support being cut.</p>
+                <h4>The Solution</h4>
+                <p><strong>Districts dedicate budget lines to teacher development:</strong> Tuition reimbursement, PD time, sabbaticals. Investment in teacher growth reduces burnout and improves instruction.</p>
+                <h4>Community Action</h4>
+                <ul>
+                    <li><strong>Parents at budget meetings:</strong> <em>"Allocate funds for teacher professional development. It directly improves student outcomes."</em></li>
+                    <li><strong>Teachers:</strong> Advocate for: tuition reimbursement, paid PD time, sabbatical programs</li>
+                    <li><strong>Students:</strong> Speak to the connection: <em>"Teachers with good professional development teach us better."</em></li>
+                </ul>
+            </div>
+
+            <h3>Strategy 5: Community-Funded Supplemental Programs</h3>
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Federal and state funding cuts mean programs getting eliminated. Arts, after-school, counseling at risk.</p>
+                <h4>The Solution</h4>
+                <p><strong>Communities fill the gap:</strong> Nonprofits, businesses, community organizations fund programs schools can't. Partnerships make programs sustainable.</p>
+                <h4>Examples</h4>
+                <ul>
+                    <li><strong>Local arts nonprofits:</strong> Partner with schools to offer arts classes, after-school programs</li>
+                    <li><strong>Community foundations:</strong> Fund specific programs (robotics clubs, mentorship, tutoring)</li>
+                    <li><strong>Businesses:</strong> Sponsor field trips, career panels, equipment</li>
+                    <li><strong>Universities:</strong> Partner with schools for tutoring, mentorship</li>
+                </ul>
+                <h4>Community Action</h4>
+                <ul>
+                    <li><strong>Parents/teachers:</strong> Identify which programs are at risk. Reach out to nonprofits/businesses.</li>
+                    <li><strong>Community organizations:</strong> Partner with schools. Even small programs help.</li>
+                    <li><strong>Create fundraisers:</strong> Benefit concerts, runs, auctions to fund specific programs</li>
+                </ul>
+            </div>
+
+            <h3>Strategy 6: Parent & Community Advocacy Campaigns</h3>
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Federal/state policies are out of step with community values. Silence = acceptance.</p>
+                <h4>The Solution</h4>
+                <p><strong>Organized, visible parent activism changes policy.</strong> Board meetings, school choice, letter-writing campaigns, media advocacy all work.</p>
+                <h4>Examples</h4>
+                <ul>
+                    <li><strong>Public School Strong:</strong> Parent-led campaigns in NC, expanding nationally</li>
+                    <li><strong>JerseyCAN:</strong> Education advocacy fellowship for parents in NJ</li>
+                    <li><strong>Local school board campaigns:</strong> Parents running for board, advocating for specific policies</li>
+                    <li><strong>Media campaigns:</strong> Op-eds, social media, podcast episodes about education issues</li>
+                </ul>
+                <h4>Community Action</h4>
+                <ul>
+                    <li>Join existing advocacy organizations</li>
+                    <li>Attend school board meetings regularly</li>
+                    <li>Recruit other parents (most powerful tool: peer-to-peer outreach)</li>
+                    <li>Use social media, local media to amplify your voice</li>
+                </ul>
+            </div>
+
+            <h3>Strategy 7: Student Voice & Youth Activism</h3>
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Education policies are made without hearing from students most affected.</p>
+                <h4>The Solution</h4>
+                <p><strong>Students organize, speak at board meetings, contact elected officials.</strong> Student voices are powerful. Adults listen.</p>
+                <h4>Examples</h4>
+                <ul>
+                    <li><strong>Pupil Power (UK):</strong> Student-led movement for education transformation</li>
+                    <li><strong>Student-led campaigns:</strong> Across country, students successfully fought for specific policies</li>
+                    <li><strong>School board testimony:</strong> Students speaking about their needs drive change</li>
+                </ul>
+                <h4>Community Action</h4>
+                <ul>
+                    <li>Start student advocacy clubs</li>
+                    <li>Organize peer campaigns (social media, petitions, meetings)</li>
+                    <li>Speak at board meetings and to elected officials</li>
+                    <li>Support teacher/parent advocacy (student backing amplifies their voices)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- NJ RESOURCES SECTION -->
+        <section id="nj" class="section">
+            <h2 class="section-title">🗽 New Jersey-Specific Resources & Opportunities</h2>
+            <p class="section-subtitle">Tools and organizations in your state working to protect education</p>
+
+            <h3>NJ Education Policy & Advocacy Organizations</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>JerseyCAN</h3>
+                    <p><strong>Parent-led advocacy for education policy.</strong> Offers paid education advocacy fellowships for teachers and parents. Great way to get involved and learn about policy.</p>
+                    <p><strong>Contact:</strong> jerseycan.org or look for 2025-26 fellowship application</p>
+                    <p><strong>For you:</strong> Parents/teachers interested in deeper policy work</p>
+                </div>
+
+                <div class="card">
+                    <h3>New Jersey Education Association (NJEA)</h3>
+                    <p><strong>Teachers' union with ~200,000 members.</strong> Advocacy, legal support, professional development resources. Local chapters in every district.</p>
+                    <p><strong>Contact:</strong> njea.org</p>
+                    <p><strong>For you:</strong> Teachers looking for union membership, support, advocacy</p>
+                </div>
+
+                <div class="card">
+                    <h3>Advocates for Children of New Jersey</h3>
+                    <p><strong>Policy advocacy nonprofit.</strong> Works on education equity, special education, funding. Provides resources and advocacy support.</p>
+                    <p><strong>Contact:</strong> acnj.org</p>
+                    <p><strong>For you:</strong> Families concerned about education equity, special education rights</p>
+                </div>
+
+                <div class="card">
+                    <h3>New Jersey's Teacher Workforce Resources</h3>
+                    <p><strong>Heldrich Center at Rutgers University.</strong> Publishes annual reports on NJ teacher workforce, shortages, trends. Data-driven insights.</p>
+                    <p><strong>Contact:</strong> bloustein.rutgers.edu/heldrich</p>
+                    <p><strong>For you:</strong> Anyone wanting to understand NJ education workforce data</p>
+                </div>
+            </div>
+
+            <h3>NJ Teacher Certification & Alternative Routes</h3>
+            <div class="highlight-box">
+                <h4>Official NJ Resources:</h4>
+                <ul>
+                    <li><strong>NJ Department of Education:</strong> nj.gov/education/certification/ — Official cert requirements, approved programs</li>
+                    <li><strong>Brookdale Community College Alternate Route:</strong> AAQEP-accredited alternative certification, affordable</li>
+                    <li><strong>Kean University Alternate Route:</strong> University-based alternative program</li>
+                    <li><strong>County colleges:</strong> Many offer alternative certification programs (lower cost than universities)</li>
+                </ul>
+            </div>
+
+            <h3>NJ Education Funding & Budget Information</h3>
+            <div class="highlight-box">
+                <h4>Track the Money:</h4>
+                <ul>
+                    <li><strong>Your district's budget:</strong> Request from superintendent or school board. Shows what's funded, what's cut.</li>
+                    <li><strong>NJ State Budget:</strong> nj.gov — Look for education funding allocations (usually June)</li>
+                    <li><strong>School Funding Reform Act (SFRA):</strong> State law determining how much each district gets. NJ currently fully funding (good!)</li>
+                    <li><strong>NJSBA (School Boards Association):</strong> njsba.org — Updates on state funding, policy changes</li>
+                </ul>
+            </div>
+
+            <h3>NJ Elected Officials to Contact</h3>
+            <div class="action-checklist">
+                <h4>Federal (for federal funding/policy):</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="nj1">
+                    <label for="nj1"><strong>U.S. Senate (2 senators):</strong> senate.gov</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="nj2">
+                    <label for="nj2"><strong>U.S. House (13 representatives):</strong> house.gov</label>
+                </div>
+
+                <h4>State (for state funding/policy):</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="nj3">
+                    <label for="nj3"><strong>Governor Phil Murphy:</strong> nj.gov</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="nj4">
+                    <label for="nj4"><strong>State Senate (40 members):</strong> njleg.state.nj.us</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="nj5">
+                    <label for="nj5"><strong>State House (80 members):</strong> njleg.state.nj.us</label>
+                </div>
+
+                <h4>Local (for school/district policy):</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="nj6">
+                    <label for="nj6"><strong>Your school board:</strong> Check district website for members, meeting schedule</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="nj7">
+                    <label for="nj7"><strong>Your superintendent:</strong> District website</label>
+                </div>
+            </div>
+
+            <h3>What's Happening in NJ Right Now</h3>
+            <div class="two-col">
+                <div>
+                    <h4>✅ Positive Developments</h4>
+                    <ul>
+                        <li>State fully funding School Funding Reform Act (two years running)</li>
+                        <li>$34.6 million universal pre-K expansion (FY26)</li>
+                        <li>$565.8 million for child care assistance</li>
+                        <li>Increased school aid: $12.1 billion (3.3% increase)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>⚠️ Challenges</h4>
+                    <ul>
+                        <li>Teacher certification barriers removed (positive for supply, concerning for quality)</li>
+                        <li>Federal funding cuts will impact high-poverty districts most</li>
+                        <li>School construction funding may run out by 2030</li>
+                        <li>Teacher shortages persist in special ed, STEM, ESL</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Your Action Plan for NJ</h3>
+            <div class="action-checklist">
+                <h4>Short-Term (Next 3 Months):</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction1">
+                    <label for="njaction1">Contact your state legislators about federal education funding cuts</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction2">
+                    <label for="njaction2">Attend a school board meeting in your district</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction3">
+                    <label for="njaction3">Join or research JerseyCAN, NJEA, or other NJ advocacy organizations</label>
+                </div>
+
+                <h4>Medium-Term (Next 6 Months):</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction4">
+                    <label for="njaction4">Become regular at school board meetings (monthly)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction5">
+                    <label for="njaction5">Connect with other parents/teachers/students in your district</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction6">
+                    <label for="njaction6">Speak at one board meeting about education concerns</label>
+                </div>
+
+                <h4>Long-Term (Year+):</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction7">
+                    <label for="njaction7">Build sustained advocacy group in your district/region</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction8">
+                    <label for="njaction8">Support school board candidates aligned with education funding</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="njaction9">
+                    <label for="njaction9">Track and influence your district's response to federal changes</label>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><strong>Education Crisis Action Hub</strong> | January 2026</p>
+        <p>This website synthesizes research on 2025-2026 federal education policy changes and provides actionable solutions for parents, teachers, and students.</p>
+        <p>For questions, corrections, or to suggest resources: Contact your local education advocacy organizations.</p>
+        <p>Last updated: January 8, 2026 | Stay informed. Stay active. Your voice matters.</p>
+    </footer>
+
+    <script>
+        function switchSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            // Update nav styling
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleCollapse(id) {
+            const element = document.getElementById(`collapse-${id}`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleContent(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.collapse-icon');
+
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                icon.classList.remove('open');
+            } else {
+                content.classList.add('show');
+                icon.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>
